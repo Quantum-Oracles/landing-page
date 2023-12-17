@@ -12,6 +12,7 @@ export default function Hero() {
   }
 
   const initialPos = usePosition(contentRef);
+  const [r] = useState(Math.random());
 
   const [offset, setOffset] = useState(0);
 
@@ -38,8 +39,8 @@ export default function Hero() {
 
       <div
         className={twMerge(
-          "absolute top-0 -translate-y-1/2 right-3 translate-x-1/2 w-[25vw] aspect-square rounded-full blur-3xl opacity-30",
-          Math.random() < 0.4
+          "absolute top-0 -translate-y-1/2 right-3 translate-x-1/2 w-[32vw] aspect-square rounded-full blur-3xl opacity-30",
+          r < 0.4
             ? "bg-gradient-to-bl from-primary to-transparent"
             : "bg-gradient-to-bl from-secondary to-transparent"
         )}
