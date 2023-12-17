@@ -1,0 +1,35 @@
+@property --property-name {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #c0ffee;
+}
+
+@keyframes cursor-glow-color-anim {
+  from {
+    background-color: theme("colors.primary");
+  }
+  33% {
+    background-color: theme("colors.accent");
+  }
+  66% {
+    background-color: theme("colors.secondary");
+  }
+  to {
+    background-color: theme("colors.primary");
+  }
+}
+
+@keyframes cursor-glow-scale-anim {
+  from {
+    scale: 1;
+  }
+  33% {
+    scale: 0.8;
+  }
+  66% {
+    scale: 1.2;
+  }
+  to {
+    scale: 1;
+  }
+}
