@@ -1,6 +1,5 @@
 import { Abi, GetContractReturnType, getContract } from "viem";
 import { useContractRead, usePublicClient, useWalletClient } from "wagmi";
-import client from "../client";
 import { useEffect, useState } from "react";
 
 import ens from "./ens";
@@ -31,7 +30,7 @@ function viemContract<T extends Abi, P extends `0x${string}`>(
     abi: T;
     address: P;
   }>
-): GetContractReturnType<T, typeof client, typeof client, P> {
+): GetContractReturnType<T, any, any, P> {
   const { data: walletClient } = useWalletClient();
   const publicClient = usePublicClient();
 
