@@ -19,14 +19,14 @@ const solutions = [
     title: "We are still buidling!",
     content:
       "There's more to come and we can't wait to share our solutions with you!",
-    url: "",
+    url: "/solutions",
   },
 ];
 
 export default function Solutions() {
   return (
-    <section className="relative h-screen mt-[20vh]">
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[75vh] flex justify-center">
+    <section className="relative h-screen mt-[20vh]" id="solutions">
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[75vh] flex justify-center overflow-hidden">
         <Video
           src="/videos/extend-cubes.mp4"
           autoPlay
@@ -37,7 +37,7 @@ export default function Solutions() {
         />
 
         <div className="absolute-cover bg-gradient-to-br from-primary to-secondary via-accent mix-blend-color" />
-        <div className="absolute-cover bg-gradient-to-b from-background to-background via-transparent" />
+        <div className="absolute-cover bg-gradient-to-b from-background to-background via-transparent scale-[101%]" />
       </div>
 
       <div className="flex flex-col p-page items-center relative z-1 h-full">

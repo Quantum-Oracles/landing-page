@@ -47,7 +47,7 @@ export default function Hero() {
       />
 
       <div
-        className="flex flex-col items-center gap-y-24"
+        className="flex flex-col items-center gap-y-10"
         ref={contentRef}
         style={{
           opacity: Math.abs(1 - clampValue(offset * 6, { min: -1, max: 1 })),
@@ -63,6 +63,10 @@ export default function Hero() {
           </h1>
           <h2>Faster than ever!</h2>
         </div>
+
+        <p className="text-front text-opacity-75 font-light text-lg">
+          some five words professional description
+        </p>
 
         <div className="flex gap-x-20">
           <button
