@@ -27,6 +27,9 @@ export default {
         raleway: '"Raleway", sans-serif',
         inter: '"Inter", sans-serif',
       },
+      scale: {
+        200: 2,
+      },
       zIndex: {
         1: 1,
       },

@@ -15,7 +15,7 @@ export default function HomePage() {
       <Climate />
       <Faqs />
 
-      {/* <section className="h-[300vh]" /> */}
+      <section className="h-[300vh]" />
     </>
   );
 }
