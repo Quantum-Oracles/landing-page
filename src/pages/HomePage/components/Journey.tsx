@@ -85,11 +85,15 @@ function JourneySection1() {
             </span>
 
             <h1 className="font-bold text-4xl tracking-tight">
-              Quantum Oracles Wins 3 first places at Oxford Blockchain Hack
+              Buidling Quantum HedgeFunds for Chainlink constellation
             </h1>
             <p className="text-gray-300 text-lg">
-              'QuChain' introduced to over 100 attendees at the Oxford
-              Blockchain community of developers for the first time.
+              {" "}
+              We are further fusing quantum computing with blockchain
+              technology. Our focus is now on establishing a hedge fund that
+              leverages the Quantum Oracles infrastructure, integrating
+              Chainlink functions, price feeds, and automation to drive forward
+              the financial industry's future.
             </p>
 
             <Link

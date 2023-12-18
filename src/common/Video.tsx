@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 interface VideoProps {
   speed?: number;
+  autoLoop?: boolean;
 }
 
 export default function Video(
@@ -14,7 +15,13 @@ export default function Video(
   const ref = useRef() as React.MutableRefObject<HTMLVideoElement>;
 
   useEffect(() => {
-    ref.current.playbackRate = props.speed || 1;
+    const curr = ref.current;
+    curr.playbackRate = props.speed || 1;
+    if (props.autoLoop) {
+      curr.autoplay = true;
+      curr.muted = true;
+      curr.loop = true;
+    }
   }, []);
 
   return <video ref={ref} {...props} />;
