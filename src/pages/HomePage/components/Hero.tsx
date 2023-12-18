@@ -32,7 +32,12 @@ export default function Hero() {
           strength={9}
           speed={1}
           radSize={200}
+          pulsate
           // wavesCount={100}
+        />
+        <div
+          className="absolute w-[20%] h-[45%] blur-2xl mix-blend-hue bg-black opacity-50 animate-[art-anim-pulsate_15000ms_infinite] top-3/4 left-0 z-1"
+          key={0}
         />
         <div className="absolute-cover bg-gradient-to-l from-background via-transparent to-background" />
       </div>

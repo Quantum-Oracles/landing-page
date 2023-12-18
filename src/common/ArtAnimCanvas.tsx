@@ -13,6 +13,7 @@ interface ArtAnimProps {
   speed?: number;
   radSize?: number;
   wavesCount?: number;
+  pulsate?: boolean;
 }
 
 export default function ArtAnimCanvas(props: ArtAnimProps) {
@@ -309,5 +310,7 @@ export default function ArtAnimCanvas(props: ArtAnimProps) {
     }
   }
 
-  return <canvas ref={canvasRef} className={twMerge("", props.className)} />;
+  return (
+    <canvas ref={canvasRef} className={twMerge("relative", props.className)} />
+  );
 }
