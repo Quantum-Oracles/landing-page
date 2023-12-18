@@ -127,6 +127,11 @@ export default function Faqs() {
           <Faq faq={faq} key={key} />
         ))}
       </div>
+
+      <div
+        className="absolute top-[45vh] left-1/2 -translate-x-1/2 bg-gradient-to-l from-primary to-secondary opacity-20 h-[30vh] w-[75vw] rounded-full 
+        rotate-[20deg] blur-[111px] -z-10"
+      />
     </section>
   );
 }
