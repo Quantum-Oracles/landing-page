@@ -8,7 +8,6 @@ export default function Climate() {
     <section className="relative h-screen mt-[10vh] w-full p-page">
       <Video
         src="/videos/olena.mp4"
-        autoLoop
         speed={1}
         className="absolute-cover object-cover -z-1 saturate-150"
       />

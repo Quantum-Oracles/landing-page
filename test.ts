@@ -1,25 +1,13 @@
-function container<T extends unknown[]>(
-  props: {
-    children: T;
-    onSubmit: (
-      data: Record<
-        Extract<T[number], { type: { name: "Input" }; name: string }>["name"],
-        string
-      >
-    ) => void;
-    tester?: (data: T[number]) => void;
-  } & Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit" | "children">
-) {}
+`Subject: No Objection Certificate and acknowledgement for Residency
 
-container({
-  children: [
-    "Asdad",
-    { name: "Asdasd" },
-    { type: { name: "Input" }, name: "ads" },
-    { type: { name: "Input" }, name: "sad" },
-    { type: "hum", name: "popcorn" },
-    { type: "hum", name: "popcorn", allah: "res" },
-  ] as const,
-  onSubmit: (data) => {},
-  tester: (data) => {},
-});
+Dear Sir/Madam,
+
+I, Aditi Tatade, acknowledge and express my consent for Mr. Spandan Barve, son of my (late) mother's sister, residing at G-001, Mayuresh Park, Lake View Road, Bhandup, for the past five years. Due to the unfortunate demise of his parents, Spandan has been living at this property, which is registered in my name.
+
+I affirm that I have no objection to Spandan Barve's continued stay at the aforementioned address.
+
+This letter is issued willingly, and I request the authorities to consider my consent for the forward process of his passport application..
+
+Thank you for your understanding and prompt attention to this matter.
+
+sincerely,`;
