@@ -1,16 +1,18 @@
 import { twMerge } from "tailwind-merge";
 import {
   generateRandomCharactersMatrix,
+  getDocumentHeight,
   isPointInCircle,
   linearMap,
 } from "../utils";
 import { useEffect, useRef, useState } from "react";
 import useRect from "../hooks/useRect";
 import Icon from "./Icon";
+import { useForceUpdate } from "../hooks/useForceUpdate";
 
 export default function Footer() {
   return (
-    <footer className="">
+    <footer className="mt-[13vh] select-none">
       <section className="py-[10vh] relative">
         <ArtsyWordsElement className="h-[45vh] pointer-events-auto" />
         <div className="absolute-cover flex flex-col justify-center p-page gap-y-6">
@@ -47,6 +49,7 @@ function ArtsyWordsElement(props: { className?: string }) {
       left: number;
       wobbleDuration: number;
       pulsateDuration: number;
+      pulsateDelay: number;
     }[][]
   >();
 
@@ -88,7 +91,8 @@ function ArtsyWordsElement(props: { className?: string }) {
             char: ch,
             top: coords?.top || Infinity,
             left: coords?.left || Infinity,
-            pulsateDuration: Math.random() * 5000 + 2000,
+            pulsateDuration: Math.random() * 8000 + 2000,
+            pulsateDelay: Math.random() * 8000,
             wobbleDuration: Math.random() * 8000 + 6000,
           };
         });
@@ -98,12 +102,16 @@ function ArtsyWordsElement(props: { className?: string }) {
 
   useEffect(() => {
     generateChars();
-    window.addEventListener("resize", generateChars);
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", generateChars);
-    };
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [rect, ref, chars]);
+
+  useEffect(() => {
+    window.addEventListener("resize", generateChars);
+    return () => window.removeEventListener("resize", generateChars);
   }, []);
 
   return (
@@ -119,15 +127,17 @@ function ArtsyWordsElement(props: { className?: string }) {
                 key={`${i}#${j}`}
                 className={twMerge(
                   "absolute -translate-x-1/2 -translate-y-1/2 text-xs text-white duration-[2s]",
-                  isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
-                    x: ch.left,
-                    y: ch.top,
-                  }) &&
+                  window.scrollY >
+                    getDocumentHeight() - 2 * window.innerHeight &&
+                    isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
+                      x: ch.left,
+                      y: ch.top,
+                    }) &&
                     "text-secondary scale-[200%] text-xl font-bold duration-300"
                 )}
                 style={{
                   ...getCharacterCoords(i, j),
-                  animation: `artsy-pulsating-text ${ch.pulsateDuration}ms infinite, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
+                  animation: `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
                 }}
               >
                 {ch.char}

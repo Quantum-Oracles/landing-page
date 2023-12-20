@@ -96,7 +96,7 @@ export default function Navbar() {
           className="flex items-center px-6 py-2 rounded-full bg-foreground bg-opacity-100 text-back gap-x-2 hover:bg-gradient-to-br hover:from-primary hover:to-secondary
         hover:via-accent hover:text-front"
         >
-          Start Building <Icon icon="open_in_new" />
+          Get Notified <Icon icon="open_in_new" />
         </button>
       </nav>
     </>

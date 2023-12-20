@@ -172,3 +172,10 @@ export function isPointInCircle(
   );
   return distance <= radius;
 }
+
+export function getDocumentHeight(): number {
+  return Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight
+  );
+}

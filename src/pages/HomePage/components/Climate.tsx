@@ -9,6 +9,9 @@ export default function Climate() {
       <Video
         src="/videos/olena.mp4"
         speed={1}
+        autoPlay
+        muted
+        loop
         className="absolute-cover object-cover -z-1 saturate-150"
       />
       <div className="absolute-cover bg-gradient-to-b from-black to-black via-[#0a2a0a56] -z-1" />
