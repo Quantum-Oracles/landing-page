@@ -1,14 +1,12 @@
 import { twMerge } from "tailwind-merge";
 import {
   generateRandomCharactersMatrix,
-  getDocumentHeight,
   isPointInCircle,
   linearMap,
 } from "../utils";
 import { useEffect, useRef, useState } from "react";
 import useRect from "../hooks/useRect";
 import Icon from "./Icon";
-import { useForceUpdate } from "../hooks/useForceUpdate";
 import { PopupButton } from "@typeform/embed-react";
 
 export default function Footer() {
