@@ -92,7 +92,10 @@ const faqs = [
         propose features, or build on top of the Quantum Oracles platform.
         <br />
         <br />- <b>As an investor:</b> You can reach out to us at
-        contact@quantumoracles.dev or directly through our contact form.
+        <a target="_blank" href="mailto:contact@quantumoracles.dev">
+          contact@quantumoracles.dev
+        </a>{" "}
+        or directly through our contact form.
       </p>
     ),
   },
