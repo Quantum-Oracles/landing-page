@@ -145,16 +145,11 @@ function Faq(props: { faq: { title: string; content: React.ReactNode } }) {
   const { faq } = props;
 
   return (
-    <div
-      onClick={() => {
-        if (open) setOpen(false);
-      }}
-      className=""
-    >
+    <div className="">
       <div
         className="flex justify-between items-center py-6 px-8 bg-foreground bg-opacity-10 border border-front border-opacity-25 cursor-pointer"
         onClick={() => {
-          if (!open) setOpen(true);
+          setOpen(!open);
         }}
       >
         <h4 className="font-light text-2xl">{faq.title}</h4>
