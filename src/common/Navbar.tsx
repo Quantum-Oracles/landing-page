@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import Icon from "./Icon";
+import { PopupButton } from "@typeform/embed-react";
 
 const scrollThreshold = window.innerHeight * 0.15;
 
@@ -139,12 +140,13 @@ export default function Navbar() {
           <NavLogo />
         </Link>
 
-        <button
+        <PopupButton
+          id="xeMPj4UL"
           className="flex items-center px-6 py-2 rounded-full bg-foreground bg-opacity-100 text-back gap-x-2 hover:bg-gradient-to-br hover:from-primary hover:to-secondary
         hover:via-accent hover:text-front"
         >
           Get Notified <Icon icon="open_in_new" />
-        </button>
+        </PopupButton>
       </nav>
     </>
   );

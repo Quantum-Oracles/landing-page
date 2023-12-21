@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import useRect from "../hooks/useRect";
 import Icon from "./Icon";
 import { useForceUpdate } from "../hooks/useForceUpdate";
+import { PopupButton } from "@typeform/embed-react";
 
 export default function Footer() {
   return (
@@ -27,13 +28,14 @@ export default function Footer() {
           >
             Subscribe for updates
           </p>
-          <button
+          <PopupButton
+            id="xeMPj4UL"
             className="w-max flex gap-x-3 items-center uppercase bg-background border border-front border-opacity-20 px-6 py-3 rounded-md duration-500 hover:scale-110
           hover:bg-foreground hover:text-back hover:translate-x-2"
           >
             <span className="tracking-wide">Newsletter</span>
             <Icon icon="arrow_forward" className="text-xl scale-110" />
-          </button>
+          </PopupButton>
         </div>
       </section>
     </footer>
