@@ -3,6 +3,7 @@ import ArtAnimCanvas from "../../../common/ArtAnimCanvas";
 import usePosition from "../../../hooks/usePosition";
 import { useEffect, useRef, useState } from "react";
 import { clampValue } from "../../../utils";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -78,14 +79,15 @@ export default function Hero() {
             className="bg-gradient-to-br from-secondary text-front tracking-wider font-raleway font-semibold to-transparent rounded-full px-10 py-4 overflow-hidden relative hover:opacity-70
         before:absolute-cover before:bg-secondary before:opacity-10 before:-z-1 duration-500 before:duration-inherit hover:before:opacity-100 hover:text-back hover:scale-90"
           >
-            Start Building
+            Get Notified
           </button>
-          <button
+          <Link
+            to="/developers/docs"
             className="bg-gradient-to-bl from-primary text-front tracking-wider font-raleway font-semibold to-transparent rounded-full px-10 py-4 overflow-hidden relative hover:opacity-70
         before:absolute-cover before:bg-primary before:opacity-10 before:-z-1 duration-500 before:duration-inherit hover:before:opacity-100 hover:text-back hover:scale-90"
           >
             Read Docs
-          </button>
+          </Link>
         </div>
       </div>
     </section>

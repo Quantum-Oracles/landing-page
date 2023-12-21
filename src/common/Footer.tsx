@@ -51,7 +51,7 @@ function ArtsyWordsElement(props: { className?: string }) {
       pulsateDuration: number;
       pulsateDelay: number;
     }[][]
-  >();
+  >([[]]);
 
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
   const rect = useRect(ref);
@@ -101,12 +101,14 @@ function ArtsyWordsElement(props: { className?: string }) {
   }
 
   useEffect(() => {
-    generateChars();
+    setTimeout(() => {
+      generateChars();
+    }, 20);
   }, []);
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    if (ref && rect && chars)
+      window.addEventListener("mousemove", handleMouseMove);
   }, [rect, ref, chars]);
 
   useEffect(() => {
@@ -119,32 +121,29 @@ function ArtsyWordsElement(props: { className?: string }) {
       ref={ref}
       className={twMerge("w-full relative group", props.className)}
     >
-      {chars &&
-        chars.map((row, i) => (
-          <>
-            {row.map((ch, j) => (
-              <figure
-                key={`${i}#${j}`}
-                className={twMerge(
-                  "absolute -translate-x-1/2 -translate-y-1/2 text-xs text-white duration-[2s]",
-                  window.scrollY >
-                    getDocumentHeight() - 2 * window.innerHeight &&
-                    isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
-                      x: ch.left,
-                      y: ch.top,
-                    }) &&
-                    "text-secondary scale-[200%] text-xl font-bold duration-300"
-                )}
-                style={{
-                  ...getCharacterCoords(i, j),
-                  animation: `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
-                }}
-              >
-                {ch.char}
-              </figure>
-            ))}
-          </>
-        ))}
+      {chars.map((row, i) => (
+        <figure key={i}>
+          {row.map((ch, j) => (
+            <figure
+              key={`${i}#${j}`}
+              className={twMerge(
+                "absolute -translate-x-1/2 -translate-y-1/2 text-xs text-white duration-[2s]",
+                isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
+                  x: ch.left,
+                  y: ch.top,
+                }) &&
+                  "text-secondary scale-[200%] text-xl font-bold duration-300"
+              )}
+              style={{
+                ...getCharacterCoords(i, j),
+                animation: `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
+              }}
+            >
+              {ch.char}
+            </figure>
+          ))}
+        </figure>
+      ))}
     </div>
   );
 }

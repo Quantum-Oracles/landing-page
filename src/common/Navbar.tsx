@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import Icon from "./Icon";
@@ -7,15 +7,17 @@ const scrollThreshold = window.innerHeight * 0.15;
 
 const navItems = [
   { to: "/", title: "Home" },
-  { to: "/solutions", title: "Solutions" },
-  { to: "/docs", title: "Learn" },
-  { to: "/pr", title: "Community" },
+  { to: "/developers/docs", title: "Learn" },
+  { hover: <HoverWindowSolutions />, title: "Solutions" },
+  { hover: <HoverWindowCommunity />, title: "Community" },
   { to: "/about", title: "About" },
 ];
 
 export default function Navbar() {
   const [minimized, setMinimized] = useState(false);
-  const [flag, setFlag] = useState(false);
+  const flag = useRef(false);
+  const [hoverDisplay, setHoverDisplay] = useState<ReactNode | null>(null);
+  const [hoverDisplayX, setHoverDisplayX] = useState<number>(0);
 
   function handleScroll() {
     const currY = window.scrollY;
@@ -33,16 +35,29 @@ export default function Navbar() {
     }
   }
 
+  function handleMouseMove(event: MouseEvent) {
+    if (
+      Math.sqrt(
+        Math.pow(event.clientX - hoverDisplayX, 2) +
+          Math.pow(event.clientY - 0, 2)
+      ) > 200
+    ) {
+      setHoverDisplay(null);
+    }
+  }
+
   useEffect(() => {
-    // Check for user intent to scroll and hide / show navbar accordingly
-    if (!flag) {
+    if (!flag.current) {
+      // Check for user intent to scroll and hide / show navbar accordingly
       window.addEventListener("scroll", handleScroll);
-      setFlag(true);
+
+      window.addEventListener("mousemove", handleMouseMove);
+      flag.current = true;
     }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      setFlag(false);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -60,21 +75,53 @@ export default function Navbar() {
 
         <div className="flex gap-x-10">
           {navItems.map((item, key) => (
-            <NavLink
+            <div
+              className="text-front text-opacity-70 text-lg duration-300"
               key={key}
-              className={({ isActive }) =>
-                twMerge(
-                  "text-front text-opacity-70 text-lg duration-300",
-                  isActive
-                    ? "text-front text-opacity-100"
-                    : "hover:text-secondary"
-                )
-              }
-              to={item.to}
             >
-              {item.title}
-            </NavLink>
+              {item.to && (
+                <NavLink
+                  key={key}
+                  className={({ isActive }) =>
+                    twMerge(
+                      isActive
+                        ? "text-front text-opacity-100"
+                        : "hover:text-secondary"
+                    )
+                  }
+                  to={item.to}
+                >
+                  {item.title}
+                </NavLink>
+              )}
+              {item.hover && (
+                <button
+                  key={key}
+                  onMouseEnter={(event) => {
+                    setHoverDisplay(item.hover);
+                    setHoverDisplayX(
+                      (event.target as any).getBoundingClientRect().left
+                    );
+                  }}
+                >
+                  {item.title}
+                </button>
+              )}
+            </div>
           ))}
+        </div>
+
+        <div
+          className="fixed top-full bg-background duration-300 rounded"
+          style={{ left: `${hoverDisplayX}px` }}
+          onMouseLeave={() => setHoverDisplay(null)}
+        >
+          <div className="absolute top-0 left-0 w-full h-[calc(100%_+_2rem)] scale-y-125 bg-transparent -translate-y-10 -z-1" />
+          {hoverDisplay && (
+            <div className="animate-[anim-cropin-tl_200ms] bg-foreground bg-opacity-5">
+              {hoverDisplay}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -112,5 +159,49 @@ function NavLogo() {
         <h2>Oracles</h2>
       </div>
     </figure>
+  );
+}
+
+function HoverWindowSolutions() {
+  const solutions = [
+    { name: "QuChain", link: "" },
+    { name: "Qracle", link: "" },
+    { name: "HedgeFunds", link: "" },
+  ];
+  return (
+    <div className="flex flex-col">
+      {solutions.map((sol, key) => (
+        <Link
+          key={key}
+          target="__blank"
+          to={sol.link}
+          className="py-2 px-4 border border-front border-opacity-10"
+        >
+          {sol.name}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+function HoverWindowCommunity() {
+  const solutions = [
+    { name: "Twitter / X", link: "" },
+    { name: "Github", link: "" },
+    { name: "Telegram", link: "" },
+  ];
+  return (
+    <div className="flex flex-col">
+      {solutions.map((sol, key) => (
+        <Link
+          key={key}
+          target="__blank"
+          to={sol.link}
+          className="py-2 px-4 border border-front border-opacity-10"
+        >
+          {sol.name}
+        </Link>
+      ))}
+    </div>
   );
 }
