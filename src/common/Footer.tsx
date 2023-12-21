@@ -1,14 +1,12 @@
 import { twMerge } from "tailwind-merge";
 import {
   generateRandomCharactersMatrix,
-  getDocumentHeight,
   isPointInCircle,
   linearMap,
 } from "../utils";
 import { useEffect, useRef, useState } from "react";
 import useRect from "../hooks/useRect";
 import Icon from "./Icon";
-import { useForceUpdate } from "../hooks/useForceUpdate";
 import { PopupButton } from "@typeform/embed-react";
 
 export default function Footer() {
@@ -124,7 +122,7 @@ function ArtsyWordsElement(props: { className?: string }) {
       className={twMerge("w-full relative group", props.className)}
     >
       {chars.map((row, i) => (
-        <figure key={i}>
+        <figure key={row.toString()}>
           {row.map((ch, j) => (
             <figure
               key={`${i}#${j}`}
