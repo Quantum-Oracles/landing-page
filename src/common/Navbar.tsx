@@ -5,12 +5,12 @@ import Icon from "./Icon";
 
 const scrollThreshold = window.innerHeight * 0.15;
 
-const navItems = [
+const navItems: { title: string; to?: string; hover?: ReactNode }[] = [
   { to: "/", title: "Home" },
   { to: "/developers/docs", title: "Learn" },
-  { hover: <HoverWindowSolutions />, title: "Solutions" },
-  { hover: <HoverWindowCommunity />, title: "Community" },
-  { to: "/about", title: "About" },
+  // { hover: <HoverWindowSolutions />, title: "Solutions" },
+  // { hover: <HoverWindowCommunity />, title: "Community" },
+  // { to: "/about", title: "About" },
 ];
 
 export default function Navbar() {
