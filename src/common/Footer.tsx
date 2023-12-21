@@ -122,7 +122,7 @@ function ArtsyWordsElement(props: { className?: string }) {
       className={twMerge("w-full relative group", props.className)}
     >
       {chars.map((row, i) => (
-        <figure key={i}>
+        <figure key={row.toString()}>
           {row.map((ch, j) => (
             <figure
               key={`${i}#${j}`}

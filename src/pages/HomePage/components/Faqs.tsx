@@ -146,7 +146,7 @@ function Faq(props: { faq: { title: string; content: React.ReactNode } }) {
       onClick={() => {
         if (open) setOpen(false);
       }}
-      className="select-none"
+      className=""
     >
       <div
         className="flex justify-between items-center py-6 px-8 bg-foreground bg-opacity-10 border border-front border-opacity-25 cursor-pointer"
