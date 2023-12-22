@@ -90,8 +90,8 @@ function JourneySection1() {
               #LATEST
             </span>
 
-            <h1 className="text-4xl font-bold tracking-tight mobile:text-2xl">
-              Buidling Quantum HedgeFunds for Chainlink constellation
+            <h1 className="text-4xl font-bold tracking-tight">
+              Buidling Quantum Hedge Funds
             </h1>
             <p className="text-lg text-gray-300 mobile:text-sm">
               {" "}
@@ -176,7 +176,7 @@ function JourneySection2() {
         </div>
       </div>
 
-      <p className="mt-20 text-xl text-gray-300 mobile:hidden">11 Nov 2023</p>
+      <p className="mt-20 text-xl text-gray-300 mobile:hidden">29 Oct 2023</p>
     </article>
   );
 }
@@ -184,7 +184,7 @@ function JourneySection2() {
 function JourneySection3() {
   return (
     <article className="relative flex w-screen flex-col items-center mobile:flex-col-reverse widescreen:h-screen widescreen:pt-[17vh]">
-      <p className="mb-20 text-xl text-gray-300 mobile:hidden">20 Nov 2023</p>
+      <p className="mb-20 text-xl text-gray-300 mobile:hidden">22 Oct 2023</p>
 
       <div
         className="flex w-[87vw] rounded-xl p-8 backdrop-blur-sm mobile:w-[90vw] mobile:flex-col mobile:p-4"

@@ -91,8 +91,15 @@ const faqs = [
         <br />- <b>As a developer:</b> You can contribute to the codebase,
         propose features, or build on top of the Quantum Oracles platform.
         <br />
-        <br />- <b>As an investor:</b> You can reach out to us at
-        contact@quantumoracles.dev or directly through our contact form.
+        <br />- <b>As an investor:</b> You can reach out to us at{" "}
+        <a
+          className="text-secondary"
+          target="_blank"
+          href="mailto:contact@quantumoracles.dev"
+        >
+          contact@quantumoracles.dev
+        </a>{" "}
+        or directly through our contact form.
       </p>
     ),
   },
@@ -145,16 +152,11 @@ function Faq(props: { faq: { title: string; content: React.ReactNode } }) {
   const { faq } = props;
 
   return (
-    <div
-      onClick={() => {
-        if (open) setOpen(false);
-      }}
-      className=""
-    >
+    <div className="">
       <div
         className="flex cursor-pointer items-center justify-between border border-front border-opacity-25 bg-foreground bg-opacity-10 px-8 py-6"
         onClick={() => {
-          if (!open) setOpen(true);
+          setOpen(!open);
         }}
       >
         <h4 className="text-2xl font-light mobile:text-xl">{faq.title}</h4>
