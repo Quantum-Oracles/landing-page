@@ -103,7 +103,7 @@ function JourneySection1() {
             </p>
 
             <Link
-              to="https://www.linkedin.com/posts/yash-goyal-0018_oxfordblockchainhack-homedao-chainlink-activity-7123292120601219072-_mYH/"
+              to="https://www.linkedin.com/posts/quantum-oracles_web3-computation-layer-activity-7143867421068636160-8GQj"
               target="__blank"
               className="group flex w-max items-center justify-center gap-x-3 rounded-full border border-front px-6 py-4 duration-300 hover:bg-foreground hover:text-back"
             >
