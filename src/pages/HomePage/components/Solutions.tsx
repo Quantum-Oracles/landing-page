@@ -25,28 +25,28 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section className="relative h-screen mt-[20vh]" id="solutions">
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[75vh] flex justify-center overflow-hidden">
+    <section className="relative mt-[20vh] h-screen" id="solutions">
+      <div className="absolute left-0 top-1/2 flex h-[75vh] w-full -translate-y-1/2 justify-center overflow-hidden">
         <Video
           src="/videos/extend-cubes.mp4"
           autoPlay
           muted
           loop
-          className="invert w-full h-full object-cover"
+          className="h-full w-full object-cover invert"
           speed={1}
         />
 
-        <div className="absolute-cover bg-gradient-to-br from-primary to-secondary via-accent mix-blend-color" />
-        <div className="absolute-cover bg-gradient-to-b from-background to-background via-transparent scale-[101%]" />
+        <div className="absolute-cover bg-gradient-to-br from-primary via-accent to-secondary mix-blend-color" />
+        <div className="absolute-cover scale-[101%] bg-gradient-to-b from-background via-transparent to-background" />
       </div>
 
-      <div className="flex flex-col p-page items-center relative z-1 h-full">
-        <div className="flex flex-col h-full justify-center">
-          <h1 className="text-4xl font-medium text-center">
+      <div className="p-page relative z-1 flex h-full flex-col items-center">
+        <div className="flex h-full flex-col justify-center">
+          <h1 className="text-center text-4xl font-medium mobile:text-xl">
             We believe the future is Quantum
           </h1>
 
-          <div className="text-center mt-24 flex flex-col items-center gap-y-1 text-xl font-extralight">
+          <div className="mt-24 flex flex-col items-center gap-y-1 text-center text-xl font-extralight mobile:mt-3 mobile:text-sm">
             <p>We are working towards that future.</p>
             <p>
               We are buidling our solutions in public which are available for
@@ -54,14 +54,14 @@ export default function Solutions() {
             </p>
           </div>
 
-          <div className="flex justify-between mt-32">
+          <div className="mt-32 flex justify-between mobile:mt-4 mobile:flex-col mobile:gap-y-5">
             {solutions.map((item, key) => (
               <Link
                 to={item.url}
                 key={key}
-                className="w-[30%] bg-background p-5 bg-opacity-75 backdrop-blur-sm border-2 border-primary outline outline-secondary rounded group hover:bg-opacity-100"
+                className="group w-[30%] rounded border-2 border-primary bg-background bg-opacity-75 p-5 outline outline-secondary backdrop-blur-sm hover:bg-opacity-100 mobile:w-full"
               >
-                <div className="flex flex-col gap-y-2 group-hover:text-bg-gradient group-hover:bg-gradient-to-tl group-hover:from-secondary group-hover:via-accent group-hover:to-secondary">
+                <div className="group-hover:text-bg-gradient flex flex-col gap-y-2 group-hover:bg-gradient-to-tl group-hover:from-secondary group-hover:via-accent group-hover:to-secondary">
                   <h3 className="text-xl font-semibold tracking-wide">
                     {item.title}
                   </h3>

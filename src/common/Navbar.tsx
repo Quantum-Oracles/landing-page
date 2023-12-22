@@ -66,8 +66,8 @@ export default function Navbar() {
     <>
       <nav
         className={twMerge(
-          "fixed top-0 left-0 w-full p-page py-4 duration-500 flex justify-between items-center z-[9999] bg-background bg-opacity-70 backdrop-blur-sm",
-          minimized && "-translate-y-full"
+          "p-page fixed left-0 top-0 z-[9999] flex w-full items-center justify-between bg-background bg-opacity-70 py-4 backdrop-blur-sm duration-500",
+          minimized && "widescreen:-translate-y-full"
         )}
       >
         <Link to="/">
@@ -77,7 +77,7 @@ export default function Navbar() {
         <div className="flex gap-x-10">
           {navItems.map((item, key) => (
             <div
-              className="text-front text-opacity-70 text-lg duration-300"
+              className="text-lg text-front text-opacity-70 duration-300"
               key={key}
             >
               {item.to && (
@@ -113,11 +113,11 @@ export default function Navbar() {
         </div>
 
         <div
-          className="fixed top-full bg-background duration-300 rounded"
+          className="fixed top-full rounded bg-background duration-300 mobile:hidden"
           style={{ left: `${hoverDisplayX}px` }}
           onMouseLeave={() => setHoverDisplay(null)}
         >
-          <div className="absolute top-0 left-0 w-full h-[calc(100%_+_2rem)] scale-y-125 bg-transparent -translate-y-10 -z-1" />
+          <div className="absolute left-0 top-0 -z-1 h-[calc(100%_+_2rem)] w-full -translate-y-10 scale-y-125 bg-transparent" />
           {hoverDisplay && (
             <div className="animate-[anim-cropin-tl_200ms] bg-foreground bg-opacity-5">
               {hoverDisplay}
@@ -128,9 +128,9 @@ export default function Navbar() {
 
       <nav
         className={twMerge(
-          "fixed top-0 left-1/2 -translate-x-1/2 w-max flex rounded-full px-5 py-3 mt-6 duration-500 z-[9999] bg-background border border-front border-opacity-20 items-center gap-x-14",
+          "fixed left-1/2 top-0 z-[9999] mt-6 flex w-max -translate-x-1/2 items-center gap-x-14 rounded-full border border-front border-opacity-20 bg-background px-5 py-3 duration-500",
           "group",
-          !minimized && "-translate-y-full mt-0"
+          !minimized && "mt-0 -translate-y-full"
         )}
       >
         <Link
@@ -142,8 +142,8 @@ export default function Navbar() {
 
         <PopupButton
           id="xeMPj4UL"
-          className="flex items-center px-6 py-2 rounded-full bg-foreground bg-opacity-100 text-back gap-x-2 hover:bg-gradient-to-br hover:from-primary hover:to-secondary
-        hover:via-accent hover:text-front"
+          className="flex items-center gap-x-2 rounded-full bg-foreground bg-opacity-100 px-6 py-2 text-back hover:bg-gradient-to-br hover:from-primary hover:via-accent
+        hover:to-secondary hover:text-front"
         >
           Get Notified <Icon icon="open_in_new" />
         </PopupButton>
@@ -156,7 +156,7 @@ function NavLogo() {
   return (
     <figure className="flex gap-x-2">
       <img src="/logo.png" alt="quantum logo" className="aspect-square w-12" />
-      <div className="flex flex-col leading-none justify-center font-semibold font-poppins gap-y-1 bg-clip-text text-transparent bg-gradient-to-br from-primary to-secondary via-accent">
+      <div className="flex flex-col justify-center gap-y-1 bg-gradient-to-br from-primary via-accent to-secondary bg-clip-text font-poppins font-semibold leading-none text-transparent">
         <h1>Quantum</h1>
         <h2>Oracles</h2>
       </div>
@@ -177,7 +177,7 @@ function HoverWindowSolutions() {
           key={key}
           target="__blank"
           to={sol.link}
-          className="py-2 px-4 border border-front border-opacity-10"
+          className="border border-front border-opacity-10 px-4 py-2"
         >
           {sol.name}
         </Link>
@@ -199,7 +199,7 @@ function HoverWindowCommunity() {
           key={key}
           target="__blank"
           to={sol.link}
-          className="py-2 px-4 border border-front border-opacity-10"
+          className="border border-front border-opacity-10 px-4 py-2"
         >
           {sol.name}
         </Link>

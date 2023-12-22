@@ -25,5 +25,6 @@
   "trailingComma": "es5",
   "useTabs": false,
   "vueIndentScriptAndStyle": false,
-  "withNodeModules": false
+  "withNodeModules": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

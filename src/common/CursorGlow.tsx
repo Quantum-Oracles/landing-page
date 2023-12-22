@@ -22,11 +22,11 @@ export default function CursorGlow() {
 
   return (
     <figure
-      className="animate-[cursor-glow-color-anim_20000ms_infinite,cursor-glow-scale-anim_20000ms_infinite] fixed aspect-square w-[75vw] rounded-full blur-3xl z-[10000] opacity-[7%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      className="pointer-events-none fixed z-[10000] aspect-square w-[75vw] -translate-x-1/2 -translate-y-1/2 animate-[cursor-glow-color-anim_20000ms_infinite,cursor-glow-scale-anim_20000ms_infinite] rounded-full opacity-[7%] blur-3xl"
       style={{ left: pos.x, top: pos.y }}
     >
-      <div className="absolute-cover bg-gradient-to-r from-black to-black via-transparent" />
-      <div className="absolute-cover bg-gradient-to-b from-black to-black via-transparent" />
+      <div className="absolute-cover bg-gradient-to-r from-black via-transparent to-black" />
+      <div className="absolute-cover bg-gradient-to-b from-black via-transparent to-black" />
     </figure>
   );
 }

@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply bg-background text-front font-inter scroll-smooth selection:bg-secondary selection:text-back selection:absolute selection:-z-50;
+    @apply scroll-smooth bg-background font-inter text-front selection:absolute selection:-z-50 selection:bg-secondary selection:text-back;
   }
 
   body {
@@ -14,11 +14,11 @@
 
 @layer utilities {
   .absolute-cover {
-    @apply absolute top-0 left-0 w-full h-full;
+    @apply absolute left-0 top-0 h-full w-full;
   }
 
   .absolute-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
   }
 
   .p-page {
@@ -26,6 +26,6 @@
   }
 
   .text-bg-gradient {
-    @apply text-transparent bg-clip-text;
+    @apply bg-clip-text text-transparent;
   }
 }

@@ -5,7 +5,7 @@ type ApiEndpoints = [
     uri: "/";
     response: {};
     parms: {};
-  }
+  },
 ];
 
 export type ApiEndpoint = ApiEndpoints[number]["uri"];

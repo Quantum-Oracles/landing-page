@@ -12,14 +12,14 @@ import { PopupButton } from "@typeform/embed-react";
 export default function Footer() {
   return (
     <footer className="mt-[13vh] select-none">
-      <section className="py-[10vh] relative">
-        <ArtsyWordsElement className="h-[45vh] pointer-events-auto" />
-        <div className="absolute-cover flex flex-col justify-center p-page gap-y-6">
+      <section className="relative py-[10vh]">
+        <ArtsyWordsElement className="pointer-events-auto h-[45vh]" />
+        <div className="absolute-cover p-page flex flex-col justify-center gap-y-6">
           <p className="text-bg-gradient bg-gradient-to-br from-accent to-secondary text-lg font-medium">
             Get to know when we go public or buidl a new solution
           </p>
           <p
-            className="font-medium text-4xl"
+            className="text-4xl font-medium"
             style={{
               filter: `drop-shadow(0px 0px 4px #000)`,
             }}
@@ -28,11 +28,11 @@ export default function Footer() {
           </p>
           <PopupButton
             id="xeMPj4UL"
-            className="w-max flex gap-x-3 items-center uppercase bg-background border border-front border-opacity-20 px-6 py-3 rounded-md duration-500 hover:scale-110
-          hover:bg-foreground hover:text-back hover:translate-x-2"
+            className="flex w-max items-center gap-x-3 rounded-md border border-front border-opacity-20 bg-background px-6 py-3 uppercase duration-500 hover:translate-x-2
+          hover:scale-110 hover:bg-foreground hover:text-back"
           >
             <span className="tracking-wide">Newsletter</span>
-            <Icon icon="arrow_forward" className="text-xl scale-110" />
+            <Icon icon="arrow_forward" className="scale-110 text-xl" />
           </PopupButton>
         </div>
       </section>
@@ -107,8 +107,8 @@ function ArtsyWordsElement(props: { className?: string }) {
   }, []);
 
   useEffect(() => {
-    if (ref && rect && chars)
-      window.addEventListener("mousemove", handleMouseMove);
+    // if (ref && rect && chars)
+    // window.addEventListener("mousemove", handleMouseMove);
   }, [rect, ref, chars]);
 
   useEffect(() => {
@@ -119,25 +119,28 @@ function ArtsyWordsElement(props: { className?: string }) {
   return (
     <div
       ref={ref}
-      className={twMerge("w-full relative group", props.className)}
+      className={twMerge("group relative w-full", props.className)}
     >
       {chars.map((row, i) => (
-        <figure key={row.toString()}>
+        <figure key={i + Math.random()}>
           {row.map((ch, j) => (
             <figure
               key={`${i}#${j}`}
               className={twMerge(
-                "absolute -translate-x-1/2 -translate-y-1/2 text-xs text-white duration-[2s]",
-                isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
-                  x: ch.left,
-                  y: ch.top,
-                }) &&
-                  "text-secondary scale-[200%] text-xl font-bold duration-300"
+                "absolute -translate-x-1/2 -translate-y-1/2 animate-[var(--Wanimation)] text-xs text-white duration-[2s] mobile:animate-[var(--Manimation)] mobile:text-secondary mobile:text-opacity-30"
+                // isPointInCircle(mousePos, window.innerWidth * (6.9 / 100), {
+                //   x: ch.left,
+                //   y: ch.top,
+                // }) &&
+                //   "text-secondary scale-[200%] text-xl font-bold duration-300"
               )}
-              style={{
-                ...getCharacterCoords(i, j),
-                animation: `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
-              }}
+              style={
+                {
+                  ...getCharacterCoords(i, j),
+                  "--Wanimation": `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms, artsy-wobbly-text ${ch.wobbleDuration}ms infinite`,
+                  "--Manimation": `artsy-pulsating-text ${ch.pulsateDuration}ms infinite ${ch.pulsateDelay}ms `,
+                } as React.CSSProperties
+              }
             >
               {ch.char}
             </figure>

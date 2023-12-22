@@ -22,7 +22,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-br from-primary to-secondary via-accent;
+  @apply bg-gradient-to-br from-primary via-accent to-secondary;
 }
 
 /* Handle on hover */

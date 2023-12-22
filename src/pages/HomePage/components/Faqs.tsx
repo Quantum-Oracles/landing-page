@@ -110,27 +110,30 @@ const faqs = [
 
 export default function Faqs() {
   return (
-    <section id="faq" className="p-page flex mt-[20vh] relative">
-      <div className="mt-2 pr-[10%] sticky top-[15vh]">
-        <span className="tracking-[7px] text-sm text-bg-gradient bg-gradient-to-br from-accent to-secondary opacity-60 font-poppins">
+    <section
+      id="faq"
+      className="p-page relative mt-[20vh] flex mobile:mt-[15vh] mobile:flex-col"
+    >
+      <div className="top-[15vh] mt-2 mobile:mt-0 widescreen:sticky widescreen:pr-[10%]">
+        <span className="text-bg-gradient bg-gradient-to-br from-accent to-secondary font-poppins text-sm tracking-[7px] opacity-60">
           FAQ
         </span>
 
-        <h1 className="font-semibold text-5xl leading-none mt-6 font-raleway">
-          <span className="font-light block">Frequently</span>
+        <h1 className="mt-6 font-raleway text-5xl font-semibold leading-none mobile:text-3xl">
+          <span className="block font-light">Frequently</span>
           Asked Questions
         </h1>
       </div>
 
-      <div className="flex-1 flex flex-col gap-y-6">
+      <div className="flex flex-1 flex-col gap-y-6 mobile:mt-10">
         {faqs.map((faq, key) => (
           <Faq faq={faq} key={key} />
         ))}
       </div>
 
       <div
-        className="absolute top-[45vh] left-1/2 -translate-x-1/2 bg-gradient-to-l from-primary to-secondary opacity-20 h-[30vh] w-[75vw] rounded-full 
-        rotate-[20deg] blur-[111px] -z-10"
+        className="absolute left-1/2 top-[45vh] -z-10 h-[30vh] w-[75vw] -translate-x-1/2 rotate-[20deg] rounded-full bg-gradient-to-l from-primary 
+        to-secondary opacity-20 blur-[111px]"
       />
     </section>
   );
@@ -149,20 +152,20 @@ function Faq(props: { faq: { title: string; content: React.ReactNode } }) {
       className=""
     >
       <div
-        className="flex justify-between items-center py-6 px-8 bg-foreground bg-opacity-10 border border-front border-opacity-25 cursor-pointer"
+        className="flex cursor-pointer items-center justify-between border border-front border-opacity-25 bg-foreground bg-opacity-10 px-8 py-6"
         onClick={() => {
           if (!open) setOpen(true);
         }}
       >
-        <h4 className="font-light text-2xl">{faq.title}</h4>
+        <h4 className="text-2xl font-light mobile:text-xl">{faq.title}</h4>
         <button
-          className="h-[1.3em] aspect-square text-3xl flex justify-center items-center bg-foreground bg-opacity-10 border border-front border-opacity-20 group
-        font-extralight scale-200 duration-300 relative"
+          className="group relative flex aspect-square h-[1.3em] scale-200 items-center justify-center border border-front border-opacity-20 bg-foreground
+        bg-opacity-10 text-3xl font-extralight duration-300"
         >
           <span
             className={twMerge(
               "duration-inherit",
-              open && "-rotate-90 opacity-0 scale-150"
+              open && "-rotate-90 scale-150 opacity-0"
             )}
           >
             +
@@ -171,7 +174,7 @@ function Faq(props: { faq: { title: string; content: React.ReactNode } }) {
         </button>
       </div>
       {open && (
-        <div className="py-6 px-8 border border-front border-opacity-30 border-t-transparent">
+        <div className="border border-front border-t-transparent border-opacity-30 px-8 py-6">
           {faq.content}
         </div>
       )}

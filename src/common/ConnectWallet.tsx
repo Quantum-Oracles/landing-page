@@ -10,7 +10,7 @@ export default function ConnectWallet() {
       <div className="flex flex-col gap-y-2">
         {connectors.map((connector) => (
           <button
-            className="bg-teal-300 w-[30vh] text-black rounded disabled:opacity-50"
+            className="w-[30vh] rounded bg-teal-300 text-black disabled:opacity-50"
             disabled={!connector.ready}
             key={connector.id}
             onClick={() => connect({ connector })}

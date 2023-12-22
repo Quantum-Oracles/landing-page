@@ -52,7 +52,7 @@ function Container(props: ContainerProps) {
         <Icon
           icon="expand_more"
           className={twMerge(
-            "pt-[3px] ml-2 scale-150 duration-300",
+            "ml-2 scale-150 pt-[3px] duration-300",
             open && "rotate-180"
           )}
         />
@@ -60,7 +60,7 @@ function Container(props: ContainerProps) {
       <>
         <div
           className={twMerge(
-            "flex flex-col left-1/2 -translate-x-1/2 z-10 duration-300 absolute top-full"
+            "absolute left-1/2 top-full z-10 flex -translate-x-1/2 flex-col duration-300"
           )}
           style={{
             clipPath: !open

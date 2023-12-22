@@ -5,27 +5,27 @@ import { Link } from "react-router-dom";
 
 export default function Climate() {
   return (
-    <section className="relative h-screen mt-[10vh] w-full p-page">
+    <section className="p-page relative mt-[10vh] h-screen w-full mobile:hidden">
       <Video
         src="/videos/olena.mp4"
         speed={1}
         autoPlay
         muted
         loop
-        className="absolute-cover object-cover -z-1 saturate-150"
+        className="absolute-cover -z-1 object-cover saturate-150"
       />
-      <div className="absolute-cover bg-gradient-to-b from-black to-black via-[#0a2a0a56] -z-1" />
+      <div className="absolute-cover -z-1 bg-gradient-to-b from-black via-[#0a2a0a56] to-black" />
 
-      <div className="flex flex-col items-center justify-center w-full h-full text-front z-1">
+      <div className="z-1 flex h-full w-full flex-col items-center justify-center text-front">
         <h1
-          className="text-6xl font-medium text-center leading-tight"
+          className="text-center text-6xl font-medium leading-tight"
           style={{ filter: "drop-shadow(0px 0px 4px #000, 0px 0px 2px #000)" }}
         >
           Shifting Computational Paradigms
           <br /> is the Key to Fighting Climate Change
         </h1>
         <p
-          className="w-[46%] my-10 text-center leading-tight text-2xl"
+          className="my-10 w-[46%] text-center text-2xl leading-tight"
           style={{ filter: "drop-shadow(0px 0px 4px #000, 0px 0px 2px #000)" }}
         >
           We are developing our core solutions and services to be eco-friendly.
@@ -37,19 +37,19 @@ export default function Climate() {
         <Link
           to="https://www2.deloitte.com/content/dam/Deloitte/us/Documents/quantum-computing-climate-change-2023.pdf"
           target="__blank"
-          className="rounded-full px-6 py-4 border border-front w-max flex justify-center items-center gap-x-3 group bg-background hover:brightness-200"
+          className="group flex w-max items-center justify-center gap-x-3 rounded-full border border-front bg-background px-6 py-4 hover:brightness-200"
         >
-          <p className="leading-none uppercase mt-[2px]">Details</p>
-          <div className="relative overflow-hidden aspect-square h-[1em] scale-[160%]">
+          <p className="mt-[2px] uppercase leading-none">Details</p>
+          <div className="relative aspect-square h-[1em] scale-[160%] overflow-hidden">
             <Icon
               icon="arrow_forward"
-              className="-rotate-45 duration-300 absolute top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 group-hover:top-0 group-hover:right-0
+              className="absolute right-1/2 top-1/2 -translate-y-1/2 translate-x-1/2 -rotate-45 duration-300 group-hover:right-0 group-hover:top-0
             group-hover:-translate-y-full group-hover:translate-x-full"
             />
             <Icon
               icon="arrow_forward"
-              className="-rotate-45 duration-300 absolute left-0 -translate-x-full bottom-0 translate-y-full group-hover:bottom-1/2 group-hover:translate-y-1/2
-              group-hover:left-1/2 group-hover:-translate-x-1/2"
+              className="absolute bottom-0 left-0 -translate-x-full translate-y-full -rotate-45 duration-300 group-hover:bottom-1/2 group-hover:left-1/2
+              group-hover:-translate-x-1/2 group-hover:translate-y-1/2"
             />
           </div>
         </Link>

@@ -25,10 +25,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="h-screen relative p-page pt-[15vh] overflow-hidden">
+    <section className="p-page relative h-screen overflow-hidden pt-[15vh] mobile:pt-[20vh]">
       <div className="absolute-cover -z-10">
         <ArtAnimCanvas
-          className="absolute-cover translate-y-1/4"
+          className="absolute-cover translate-y-1/4 mobile:top-full mobile:h-1/2 mobile:-translate-y-[70%]"
           colors={{ from: [137, 44, 254], to: [23, 244, 169] }}
           bumps={8}
           strength={9}
@@ -38,7 +38,7 @@ export default function Hero() {
           // wavesCount={100}
         />
         <div
-          className="absolute w-[20%] h-[45%] blur-2xl mix-blend-hue bg-black opacity-50 animate-[art-anim-pulsate_15000ms_infinite] top-3/4 left-0 z-1"
+          className="absolute left-0 top-3/4 z-1 h-[45%] w-[20%] animate-[art-anim-pulsate_15000ms_infinite] bg-black opacity-50 mix-blend-hue blur-2xl"
           key={0}
         />
         <div className="absolute-cover bg-gradient-to-l from-background via-transparent to-background" />
@@ -46,7 +46,7 @@ export default function Hero() {
 
       <div
         className={twMerge(
-          "absolute top-0 -translate-y-1/2 right-3 translate-x-1/2 w-[32vw] aspect-square rounded-full blur-3xl opacity-30",
+          "absolute right-3 top-0 aspect-square w-[32vw] -translate-y-1/2 translate-x-1/2 rounded-full opacity-30 blur-3xl",
           r < 0.4
             ? "bg-gradient-to-bl from-primary to-transparent"
             : "bg-gradient-to-bl from-secondary to-transparent"
@@ -60,33 +60,33 @@ export default function Hero() {
           opacity: Math.abs(1 - clampValue(offset * 6, { min: -1, max: 1 })),
         }}
       >
-        <div className="flex flex-col gap-y-4 text-center text-6xl font-semibold tracking-tight">
+        <div className="flex flex-col gap-y-4 text-center text-6xl font-semibold tracking-tight mobile:text-4xl">
           <h1>
             Create with{" "}
-            <span className="text-bg-gradient bg-gradient-to-r from-primary to-secondary via-accent">
+            <span className="text-bg-gradient bg-gradient-to-r from-primary via-accent to-secondary">
               Quantum
             </span>{" "}
             power.
           </h1>
-          <h2>Faster than ever!</h2>
+          <h2 className="mobile:text-3xl">Faster than ever!</h2>
         </div>
 
-        <p className="text-front text-opacity-75 font-light text-lg">
+        <p className="text-lg font-light text-front text-opacity-75 mobile:text-sm">
           some five words professional description
         </p>
 
-        <div className="flex gap-x-20">
+        <div className="flex gap-x-20 mobile:flex-col mobile:gap-y-6">
           <PopupButton
             id="xeMPj4UL"
-            className="bg-gradient-to-br from-secondary text-front tracking-wider font-raleway font-semibold to-transparent rounded-full px-10 py-4 overflow-hidden relative hover:opacity-70
-        before:absolute-cover before:bg-secondary before:opacity-10 before:-z-1 duration-500 before:duration-inherit hover:before:opacity-100 hover:text-back hover:scale-90"
+            className="before:absolute-cover relative overflow-hidden rounded-full bg-gradient-to-br from-secondary to-transparent px-10 py-4 font-raleway font-semibold tracking-wider text-front
+        duration-500 before:-z-1 before:bg-secondary before:opacity-10 before:duration-inherit hover:scale-90 hover:text-back hover:opacity-70 hover:before:opacity-100"
           >
             Get Notified
           </PopupButton>
           <Link
             to="/developers/docs"
-            className="bg-gradient-to-bl from-primary text-front tracking-wider font-raleway font-semibold to-transparent rounded-full px-10 py-4 overflow-hidden relative hover:opacity-70
-        before:absolute-cover before:bg-primary before:opacity-10 before:-z-1 duration-500 before:duration-inherit hover:before:opacity-100 hover:text-back hover:scale-90"
+            className="before:absolute-cover relative overflow-hidden rounded-full bg-gradient-to-bl from-primary to-transparent px-10 py-4 font-raleway font-semibold tracking-wider text-front
+        duration-500 before:-z-1 before:bg-primary before:opacity-10 before:duration-inherit hover:scale-90 hover:text-back hover:opacity-70 hover:before:opacity-100"
           >
             Read Docs
           </Link>
