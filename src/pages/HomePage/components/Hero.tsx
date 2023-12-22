@@ -72,7 +72,7 @@ export default function Hero() {
         </div>
 
         <p className="text-lg font-light text-front text-opacity-75 mobile:text-sm">
-          some five words professional description
+          Web3 Computation Layer
         </p>
 
         <div className="flex gap-x-20 mobile:flex-col mobile:gap-y-6">
