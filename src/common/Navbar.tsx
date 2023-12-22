@@ -129,7 +129,7 @@ export default function Navbar() {
       <nav
         className={twMerge(
           "fixed left-1/2 top-0 z-[9999] mt-6 flex w-max -translate-x-1/2 items-center gap-x-14 rounded-full border border-front border-opacity-20 bg-background px-5 py-3 duration-500",
-          "group",
+          "group mobile:hidden",
           !minimized && "mt-0 -translate-y-full"
         )}
       >
